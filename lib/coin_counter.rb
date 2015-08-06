@@ -12,7 +12,16 @@ class Fixnum
       money = money.-(25)
       quarters = quarters.+(1)
     end
-      quarter_change=quarters.to_s().concat(" Quarter")
+
+      quarter_change = quarters.to_s().concat(" Quarter(s)")
+      grand_total.concat(quarter_change)
+
+    until money.<(10)
+      money = money.-(10)
+      dimes = dimes.+(1)
+    end
+      dime_change = dimes.to_s().concat(" Dime(s)")
+      grand_total.concat(dime_change)
   end
 end
 
