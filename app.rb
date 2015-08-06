@@ -1,6 +1,6 @@
 require('sinatra')
 require('sinatra/reloader')
-require('./lib/scrabble')
+require('./lib/coin_counter')
 also_reload('lib/**/*.rb')
 
 get('/') do
@@ -8,6 +8,6 @@ get('/') do
 end
 
 get('/coin') do
-  @coin = params.fetch('coin').coin_counter()
-  erb(:coin_counter)
+  @coin = params.fetch('coin').to_i.coin_counter()
+  erb(:title)
 end
